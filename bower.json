@@ -1,0 +1,21 @@
+{
+  "name": "finalproj",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Garretttaco/FinalProject",
+  "authors": [
+    "Garrett Tacoronte <garretttacoronte@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "handlebars": "~3.0.0",
+    "jquery": "~2.1.3"
+  }
+}
