@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Final Project</title>
+	<title>Detyour</title>
 	<link rel="stylesheet" href="<?php echo asset('css/app.css')?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo asset('css/styles.css')?>" type="text/css">
-	<script src="../JavaScript/main.js"></script>
+	<script src="../js/main.js"></script>
 </head>
 <body>
 	
@@ -13,8 +13,8 @@
 	
 	<header>
 		
-		<div>
-			header here
+		<div >
+			
 		</div>
 	</header>
 	@show
