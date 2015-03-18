@@ -1,1 +1,10 @@
-console.log('hello');
+$(function(){
+
+
+
+
+
+
+
+	
+});

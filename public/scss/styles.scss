@@ -1,3 +1,139 @@
-header {
+body {
+	font-size: 1em;
+}
+h1 {
+	font-size:3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+header h1 {
+	font-size: 2.5em;
+
+}
+/***
+Menu Bar 
+***/
+
+.main-menu {
 	background-color: blue;
+	text-align: center;
+	margin: 0 auto;
+	box-sizing: border-box;
+	overflow: hidden;
+	min-height: 1290pt;
+}
+
+.menu {
+	font-size: 4em;
+
+}
+
+.maps {
+	background-color: orange; 
+	height: 330pt;
+	margin: 0;
+	overflow: hidden;
+}
+.preference {
+	background-color: darkorange;
+	height: 330pt;
+	overflow: hidden;
+}
+
+.settings {
+	background-color: red;
+	height: 330pt;
+	overflow: hidden;
+}
+
+.about {
+	background-color: darkred;
+	height: 330pt;
+	overflow: hidden;
+}
+
+@media screen and ( min-width: 900px) {
+	.main-menu {
+		min-height: 500pt;
+		> div {
+			background-color: purple;
+			width: 960px;
+			margin: 0 auto;
+		}
+	// .main-container {
+	// 	min-height: 500pt;
+	// 	> div {
+	// 	background-color: purple;
+	// 	width: 960px;
+	// 	margin: 0 auto;
+	// 	}
+	// }
+}
+.maps {
+	height: 200px;
+}
+.preference {
+	height: 200px;
+}
+.settings {
+	height: 200px;
+}
+.about {
+	height: 200px;
+}
+}
+
+/***
+Maps Page
+***/
+
+header {
+	text-align: center;
+	div {
+		background-color: darkgreen;
+		height: 100px;
+		overflow: hidden;
+		div {
+			width: 960px;
+			background-color: green;
+			margin: 0 auto;
+		}
+
+	}
+}
+
+
+.main-container {
+	min-height: 500pt;
+	background-color: blue;
+	text-align: center;
+	margin: 0 auto;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.content  {
+	height: 500pt;
+	width: 960px;
+	margin: 0 auto;
+	background-color: red;
+	overflow: hidden;
+}
+
+/***
+Preference Page
+***/
+
+input, select {
+	height:50px;
+	width: 400px;
+	font-size: 2em;
+}
+
+.pref {
+	margin: 10px;
+	text-align: initial;
 }
