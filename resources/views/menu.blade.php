@@ -4,20 +4,15 @@
 @show
 
 @section('main_content')
-	<div class="main-menu">
-		<div>
-			<div class="maps menu">
-				<p>Maps</p>
-			</div>
-			<div class="preference menu">
-				<p>Preferences</p>
-			</div>
-			<div class="settings menu">
-				<p>Settings</p>
-			</div>
-			<div class="about menu">
-				<p>About</p>
-			</div>
+	<div class="detour-menu">
+		<div class="gas menu">
+			<p>Gas Stations</p>
+		</div>
+		<div class="restaurants menu">
+			<p>Restaurants</p>
+		</div>
+		<div class="attractions menu">
+			<p>Attractions</p>
 		</div>
 	</div>
 

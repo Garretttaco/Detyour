@@ -20,7 +20,7 @@ gulp.task('js', function() {
   gulp.src([
       './bower_components/jquery/dist/jquery.js',
       './bower_components/handlebars/handlebars.js',
-  		'./public/js/src/*.js'
+  		'./public/js/*.js'
   	])
     .pipe(concat('build.js'))
     .pipe(uglify())

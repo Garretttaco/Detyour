@@ -1,139 +1,204 @@
 body {
-	font-size: 1em;
-}
-h1 {
-	font-size:3em;
+	text-align: center;
 }
 
-h2 {
-	font-size: 2em;
+button {
+	margin: 0 auto;
 }
+
 
 header h1 {
 	font-size: 2.5em;
 
 }
-/***
+/***********
 Menu Bar 
-***/
+***********/
 
-.main-menu {
-	background-color: blue;
+.primary-menu {
+	position:fixed;
+	top: 100px;
+	left:0;
+	right: 0;
+	height: calc(100% - 100px);
+	transition: all .5s;
+	transform: translateY(-100%);
+	background-color: purple;
 	text-align: center;
-	margin: 0 auto;
-	box-sizing: border-box;
-	overflow: hidden;
-	min-height: 1290pt;
+	z-index: 1001;
 }
+
+.primary-menu.show {
+	transform: translateY(0);
+}
+
+
 
 .menu {
-	font-size: 4em;
+	font-size: 2em;
 
 }
 
 .maps {
+	width: 100%;
 	background-color: orange; 
-	height: 330pt;
+	height: 25%;
 	margin: 0;
 	overflow: hidden;
+	margin: 0 auto;
 }
 .preference {
+	width: 100%;
 	background-color: darkorange;
-	height: 330pt;
+	height: 25%;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
 .settings {
+	width: 100%;
 	background-color: red;
-	height: 330pt;
+	height: 25%;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
 .about {
+	width: 100%;
 	background-color: darkred;
-	height: 330pt;
+	height: 25%;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
-@media screen and ( min-width: 900px) {
-	.main-menu {
-		min-height: 500pt;
-		> div {
-			background-color: purple;
-			width: 960px;
-			margin: 0 auto;
-		}
-	// .main-container {
-	// 	min-height: 500pt;
-	// 	> div {
-	// 	background-color: purple;
-	// 	width: 960px;
-	// 	margin: 0 auto;
-	// 	}
-	// }
-}
-.maps {
-	height: 200px;
-}
-.preference {
-	height: 200px;
-}
-.settings {
-	height: 200px;
-}
-.about {
-	height: 200px;
-}
-}
-
-/***
+/***********
 Maps Page
-***/
+***********/
 
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	text-align: center;
-	div {
-		background-color: darkgreen;
-		height: 100px;
-		overflow: hidden;
-		div {
-			width: 960px;
-			background-color: green;
-			margin: 0 auto;
-		}
-
-	}
+	z-index: 1002;
+	background-color: green;
+	height: 100px;
+	overflow: hidden;
 }
 
-
-.main-container {
-	min-height: 500pt;
-	background-color: blue;
-	text-align: center;
-	margin: 0 auto;
-	box-sizing: border-box;
-	overflow: hidden;
+#map-canvas {
+        height: calc(100% - 140px);
+        margin: 0px;
+        padding: 0px;
+        z-index: 100;
 }
 
 .content  {
-	height: 500pt;
-	width: 960px;
+	position: absolute;
+	top: 100px;
+	bottom: 40px;
+	width: 100%;
 	margin: 0 auto;
 	background-color: red;
 	overflow: hidden;
+
 }
 
-/***
+/***********
 Preference Page
-***/
+***********/
+
+.pref-container {
+	margin-top: 40px;
+}
 
 input, select {
-	height:50px;
-	width: 400px;
-	font-size: 2em;
+	height:20px;
+	width: 50%;
+	font-size: 1em;
+
+
 }
 
 .pref {
 	margin: 10px;
 	text-align: initial;
 }
+
+.edit-pref, .pref-append {
+	margin-top: 40px;
+	display: none;
+}
+
+.expand {
+	.edit-pref, .pref-append {
+		display: block;
+	}
+}
+
+
+
+/***********
+ Detour pull up footer
+ ***********/
+
+ .footer-template {
+
+ }
+
+ footer {
+ 	overflow: hidden;
+ 	background-color: red;
+ 	.show-bottom-menu, .footer-template {
+ 		background-color: green;
+ 		position: fixed;
+ 		height: 40px;
+ 		left: 0;
+ 		right: 0;
+ 		bottom: 0;
+ 		// transform: translateY(-30pt);
+ 		text-align: center;
+ 		z-index: 1000;
+
+ 	}
+ }
+
+ .detour-menu {
+ 	width: 100%;
+ 	background-color: purple;
+ 	overflow: hidden;
+ 	height: calc(40% - 140px);
+ 	position:fixed;
+	left:0;
+	right: 0;
+	bottom: 40px;
+	transition: all .5s;
+	transform: translateY(100%);
+	z-index:101;
+ 	.gas, .restaurants, .attractions {
+		text-align: center;
+		overflow: hidden;
+		height: 33.33%;
+		font-size: 1.5em;
+ 	}
+ 	.gas {
+ 		background-color: yellow;
+ 	}
+ 	.restaurants {
+ 		background-color: orange;
+ 	}
+ 	.attractions {
+ 		background-color: red;
+ 	}
+
+ }
+
+ .detour-menu.show {
+	transform: translateY(0);
+}
+
+// .bottom-menu.hide {
+// 	display: none;
+// }
+

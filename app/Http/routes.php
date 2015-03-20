@@ -9,9 +9,14 @@ Route::get('/', function(){
 Route::get('/map', function(){
 	return view('Map');
 });
-Route::get('/preference', function(){
-	return view('preference');
+Route::get('/settings', function(){
+	return view('settings');
 });
+Route::get('/about', function(){
+	return view('about');
+});
+Route::get('/preference', 'PreferenceController@getCategories');
+Route::get('/preference/{id}', 'AjaxController@getPreferences');
 
 Route::get('home', 'HomeController@index');
 

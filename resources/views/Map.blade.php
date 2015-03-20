@@ -4,21 +4,27 @@
 
 @section('main_content')
  	<div class="main-container">
- 		<div class="content">
+ 		<div id="map-canvas" class="content">
 	 		
  		</div>
  	</div>
 
 
- 	<script id="template-menu-bar" type="text/x-handlebars-template">
-		<div class="maps">
-			<h1>Maps</h1>
+@endsection
+
+@section('footer')
+	<div class="show-bottom-menu">
+		<p class="bottom-menu">Detyour</p>
 		</div>
-		<div>
-			<h1>Add Preferences</h1>
+		<div class="detour-menu">
+		<div class="gas menu">
+			<p>Gas Stations</p>
 		</div>
-		<div>
-			<h1>Settings</h1>
+		<div class="restaurants menu">
+			<p>Restaurants</p>
 		</div>
-	</script>
+		<div class="attractions menu">
+			<p>Attractions</p>
+		</div>
+	</div>
 @endsection
