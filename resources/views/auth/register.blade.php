@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
+				<h1>Register</h1>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 					<div class="alert alert-danger">

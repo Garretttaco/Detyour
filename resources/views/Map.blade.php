@@ -23,7 +23,7 @@
 				<h1>MENU <i class="fa fa-bars"></i></h1>
 			</div>	
 		</div>
- 	<input id="search" type="text" placeholder="Search Box">
+ <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	</header>
 	@endsection
 

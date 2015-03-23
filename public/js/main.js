@@ -60,63 +60,58 @@ $(function(){
 if (window.location.pathname == '/map') {
 
 
+  var infowindow;
+  var markers = [];
+  var pos;
+  var map;
+  var directionsDisplay;
+  var directionsService;
 
-myLocation();
-searchDest();
+  directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+  infoWindow = new google.maps.InfoWindow();
+  //calling goelocation
+  myLocation();
+  searchDest();
 
 
-
-
-}
-
-});
-
-
-var infowindow;
-var markers = [];
-var pos
-var map;
 
 function myLocation() {
+  
   var mapOptions = {
     zoom: 10
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+    mapOptions);
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-      pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+  directionsDisplay.setMap(map);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
+  navigator.geolocation.getCurrentPosition(function(position) {
+    pos = new google.maps.LatLng(position.coords.latitude,
+      position.coords.longitude);
 
-      map.setCenter(pos);
-    }, function() {
-     //geo location must take two perameters. this is a place holder for error reporting.
+    var infoWindow = new google.maps.InfoWindow({
+      map: map,
+      position: pos,
+      content: 'Garrett'
     });
-  
+    
+    map.setCenter(pos);
+  }, function() {
+     //geo location must take two perameters. this is a place holder for error reporting.
+ });
+
 }
 
-
-
+var input;
 function searchDest() {
 
-var defaultBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-33.8902, 151.1759),
-      new google.maps.LatLng(-33.8474, 151.2631));
-  map.fitBounds(defaultBounds);
-
   // Create the search box and link it to the UI element.
-  var input = /** @type {HTMLInputElement} */(
-      document.getElementById('search'));
+  input = /** @type {HTMLInputElement} */(
+    document.getElementById('pac-input'));
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-  var searchBox = new google.maps.places.SearchBox(
-    /** @type {HTMLInputElement} */(input));
+  var searchBox = new google.maps.places.SearchBox((input));
 
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
@@ -134,7 +129,7 @@ var defaultBounds = new google.maps.LatLngBounds(
     markers = [];
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0, place; place = places[i]; i++) {
-     
+
 
       // Create a marker for each place.
       var marker = new google.maps.Marker({
@@ -143,13 +138,22 @@ var defaultBounds = new google.maps.LatLngBounds(
         position: place.geometry.location
       });
 
+
+      google.maps.event.addListener(marker, 'click', function() {
+        console.log(this);
+        infoWindow.setContent(this.title);
+        infoWindow.open(map, this);
+        calcRoute(pos, this.position);
+        clearMarkers(markers);
+
+      });
+
       markers.push(marker);
-
       bounds.extend(place.geometry.location);
-    }
+  }
 
-    map.fitBounds(bounds);
-  });
+  map.fitBounds(bounds);
+});
 
   // Bias the SearchBox results towards places that are within the bounds of the
   // current map's viewport.
@@ -157,6 +161,47 @@ var defaultBounds = new google.maps.LatLngBounds(
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+
 }
 
+
+var markerArray = [];
+
+var rendererOptions = {
+  map: map
+}
+
+  // Instantiate an info window to hold step text.
+  stepDisplay = new google.maps.InfoWindow();
+  
+
+    function calcRoute(origin, dest) {
+
+    var request = {
+      origin: origin,
+      destination: dest,
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+
+   // Route the directions and pass the response to a
+    // function to create markers for each step.
+    directionsService.route(request, function(response, status) {
+        directionsDisplay.setDirections(response);
+    });
+}
+
+
+function clearMarkers(markers) {
+  for (var i = 0, marker; marker = markers[i]; i++) {
+      marker.setMap(null);
+    }
+}
+
+
+
+
+
+}
+
+});
 
