@@ -7,16 +7,18 @@ USE detyour;
 
 CREATE TABLE user (
 user_id INT auto_increment PRIMARY KEY,
+first_name varchar(255),
 email varchar(255),
 password char(255),
 remember_token varchar(255),
-first_name varchar(255)
+created_at datetime,
+updated_at datetime 
 );
 
-INSERT INTO user (email, password, first_name)
-VALUES ('garretttacoronte@gmail.com', 'password', 'garrett');
-INSERT INTO user (email, password, first_name)
-VALUES ('bossman@gmail.com', 'password', 'boss');
+INSERT INTO user (email, password, first_name, created_at, updated_at)
+VALUES ('garretttacoronte@gmail.com', 'password', 'garrett', NOW(), NOW());
+INSERT INTO user (email, password, first_name, created_at, updated_at)
+VALUES ('bossman@gmail.com', 'password', 'boss', NOW(), NOW());
 
 CREATE TABLE category (
 category_id INT auto_increment PRIMARY KEY,
