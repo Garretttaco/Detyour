@@ -20,18 +20,19 @@
 		
 		<div >
 			<div class="show-menu">
-				<h1>MENU <i class="fa fa-bars"></i></h1>
+				<h1><span>MENU</span> <i class="fa fa-bars"></i></h1>
 			</div>	
 		</div>
- <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+		<div class="dest-search">
+			<input id="dest-input" class="controls" type="text" placeholder="Enter the address to search">
+		</div>
 	</header>
 	@endsection
 
 @section('main_content')
  	<div class="main-container">
- 		<div id="map-canvas" class="content">
-	 		
- 		</div>
+      <input id="way-input" class="controls" type="text" placeholder="Search Box">
+ 		<div id="map-canvas" class="content"></div>
  	</div>
 
 

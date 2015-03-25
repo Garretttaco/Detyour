@@ -1,3 +1,6 @@
+$menu-blue: rgb(53, 92, 125);
+
+
 body {
 	text-align: center;
 }
@@ -8,7 +11,11 @@ button {
 
 
 header h1 {
-	font-size: 2.5em;
+	font-size: 1.5em;
+	color: white;
+	span {
+		color: #01BEFC;
+	}
 
 }
 /***********
@@ -32,6 +39,12 @@ Menu Bar
 	transform: translateY(0);
 }
 
+ #way-input {
+      position: absolute;
+      z-index: 1003;
+      right: 0;
+      top: 40px;
+    }
 
 
 .menu {
@@ -82,10 +95,32 @@ header {
 	right: 0;
 	text-align: center;
 	z-index: 1002;
-	background-color: green;
+	background-color: $menu-blue;
 	height: 100px;
 	overflow: hidden;
 }
+
+.dest-search.hide {
+	display: none;
+}
+
+ #dest-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #426A8C;
+    border: none;
+    height: 40%;
+  }
+
+  ::-webkit-input-placeholder { 
+    	color: rgba(255, 255, 255, 0.5);
+    	padding-left: 5px;
+    	font-weight: bold;
+    	letter-spacing: 1px;
+	}
 
 #map-canvas {
         height: calc(100% - 140px);
@@ -149,9 +184,9 @@ input, select {
 
  footer {
  	overflow: hidden;
- 	background-color: red;
+ 	// background-color: red;
  	.show-bottom-menu, .footer-template {
- 		background-color: green;
+		background-color: $menu-blue;
  		position: fixed;
  		height: 40px;
  		left: 0;

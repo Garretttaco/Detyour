@@ -33,7 +33,7 @@
 		
 		<div >
 			<div class="show-menu">
-				<h1>MENU <i class="fa fa-bars"></i></h1>
+				<h1><span>MENU</span> <i class="fa fa-bars"></i></h1>
 			</div>	
 		</div>
 	</header>
