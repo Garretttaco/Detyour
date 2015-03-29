@@ -99,6 +99,17 @@ header {
   border: none;
   height: 40%; }
 
+#way-input {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  background-color: rgba(66, 106, 140, 0.49);
+  border: none;
+  display: none; }
+
+#way-input.expand {
+  display: block; }
+
 ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   padding-left: 5px;

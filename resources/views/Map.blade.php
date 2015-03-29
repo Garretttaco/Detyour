@@ -31,7 +31,7 @@
 
 @section('main_content')
  	<div class="main-container">
-      <input id="way-input" class="controls" type="text" placeholder="Search Box">
+      <input id="way-input" class="controls" type="text" placeholder="Search detour">
  		<div id="map-canvas" class="content"></div>
  	</div>
 
@@ -43,7 +43,7 @@
 		<p class="bottom-menu">Detyour</p>
 		</div>
 		<div class="detour-menu">
-		<div class="gas menu">
+		<div class="gas menu " detour="gas_station">
 			<p>Gas Stations</p>
 		</div>
 		<div class="restaurants menu">
