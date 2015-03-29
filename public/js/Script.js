@@ -31,8 +31,10 @@ $(function(){
       types: ['gas_station']
     };
     service.nearbySearch(request, function(results, status){
-      searchWaypoint(results, status, "Shell")
+      var shell = "Shell";
+      searchWaypoint(results, status, shell)
     });
+    $('.detour-menu').removeClass('show');
 
   });
 
@@ -186,9 +188,10 @@ $(function(){
     //         });
     // }
 
-    function createWaypoint(place) {
+    function createWaypoint(place, image) {
       var marker = new google.maps.Marker({
         map: map,
+        icon: image,
         title: place.name,
         position: place.geometry.location
       });
@@ -207,20 +210,23 @@ $(function(){
     function searchWaypoint(results, status, keyword) {
 
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        // var perferedFound = false;
+        var preferedFound  = false;
         for (var i = 0; i < results.length; i++) {
           place = results[i];
-          // if(place.name == keyword) {
-            createWaypoint(place);
+          if(place.name == keyword) {
+            icon = $('<i>').addClass('fa fa-check-circle');
+            createWaypoint(place, icon);
             preferedFound = true;
-          // }
+
+          }
+          if(! preferedFound) {
+            for (var i = 0; i < results.length; i++) {
+              place = results[i];
+              createWaypoint(place);
+              console.log('hello');
+            }
+          }
         }
-        // if(! preferedFound) {
-        //   for (var i = 0; i < results.length; i++) {
-        //     place = results[i];
-        //     createWaypoint(place);
-        //   }
-        // }
       }
     }
     
