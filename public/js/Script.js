@@ -21,7 +21,6 @@ $(function(){
   //This is the click event for the bottom detour menu to slide up
   $('.show-bottom-menu').on('click', function(){
     $('.detour-menu').toggleClass('show');
-    $('.footer').addClass('hide');
   });
 
   $('.gas').on('click', function(){
@@ -37,6 +36,13 @@ $(function(){
     $('.detour-menu').removeClass('show');
 
   });
+
+  $(document).on('click', '.fa-minus', function(){
+    $('#directions-panel').toggleClass('show');
+    $('.fa-minus').toggleClass('panel');
+  });
+
+  $(document).find('div.login').addClass('hide');
 
 	//This is the event triggered when a user chooses/changes a category on the select tag
 	$(document).on('change', '.category-all', function(){
@@ -73,14 +79,6 @@ $(function(){
 
   if (window.location.pathname == '/map') {
 
-    // var infowindow;
-    // var markers = [];
-    // var pos;
-    // var dest;
-    // var map;
-    // var directionsDisplay;
-    // var directionsService;
-
     directionsService = new google.maps.DirectionsService();
        
     infoWindow = new google.maps.InfoWindow();
@@ -101,6 +99,7 @@ $(function(){
       directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 
       directionsDisplay.setMap(map);
+      directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
       navigator.geolocation.getCurrentPosition(function(position) {
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -147,7 +146,7 @@ $(function(){
         service = new google.maps.places.PlacesService(map);
         google.maps.event.addListener(marker, 'click', function() {
           dest = this.position;
-          console.log(this);
+          // console.log(this);
           infoWindow.setContent(this.title);
           infoWindow.open(map, this);
           calcRoute(pos, dest);
@@ -170,23 +169,6 @@ $(function(){
       });
     }
 
-    // var wayInput;
-     
-    // function createMarker(place) {
-    //   // var placeLoc = place.geometry.location;
-    //   var marker = new google.maps.Marker({
-    //     map: map,
-    //     position: place.geometry.location
-    //   });
-
-    //    google.maps.event.addListener(marker, 'click', function() {
-    //           console.log(this);
-    //           infoWindow.setContent(this.title);
-    //           infoWindow.open(map, this);
-    //           calcRoute(pos, dest, this.position);
-    //           clearMarkers(place);
-    //         });
-    // }
 
     function createWaypoint(place, image) {
       var marker = new google.maps.Marker({
@@ -196,10 +178,10 @@ $(function(){
         position: place.geometry.location
       });
       markers.push(marker);
-      console.log(markers);
+      // console.log(markers);
 
       google.maps.event.addListener(marker, 'click', function() {
-          console.log(this);
+          // console.log(this);
           infoWindow.setContent(this.title);
           infoWindow.open(map, this);
           calcRoute(pos, dest, this.position);
@@ -214,17 +196,16 @@ $(function(){
         for (var i = 0; i < results.length; i++) {
           place = results[i];
           if(place.name == keyword) {
-            icon = $('<i>').addClass('fa fa-check-circle');
-            createWaypoint(place, icon);
-            preferedFound = true;
-
+            image ='/images/blue-pin-two.png'; 
+            createWaypoint(place, image);
+            console.log(keyword);
           }
-          if(! preferedFound) {
-            for (var i = 0; i < results.length; i++) {
-              place = results[i];
-              createWaypoint(place);
-              console.log('hello');
-            }
+        }
+        for (var i = 0; i < results.length; i++) {
+          place = results[i];
+          if(place.name != keyword) {
+            createWaypoint(place);
+            
           }
         }
       }

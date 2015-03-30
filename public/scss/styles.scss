@@ -1,5 +1,9 @@
 $menu-blue: rgb(53, 92, 125);
 
+html {
+	overflow: hidden;
+}
+
 
 body {
 	text-align: center;
@@ -153,6 +157,36 @@ header {
 
 }
 
+.fa-minus {
+	position: absolute;
+	z-index: 110;
+	right: 1%;
+	top: 50%;
+	font-size: 40px;
+	color: rgba(66, 106, 140, 0.8);
+}
+
+.fa-minus.panel {
+	color: black;	
+}
+
+
+ #directions-panel {
+    height: calc(100% - 140px);
+    position: absolute;
+    width: 50%;
+    overflow: auto;
+    z-index: 106;
+    bottom: 40px;
+    transition: all .5s;
+    transform: translateX(200%);
+    background-color: rgba(66, 106, 140, 0.8);
+  }
+
+ #directions-panel.show {
+ 	transform: translateX(100%);
+ }
+
 /***********
 Preference Page
 ***********/
@@ -200,6 +234,7 @@ input, select {
  	// background-color: red;
  	.show-bottom-menu, .footer-template {
 		background-color: $menu-blue;
+		color: #01BEFC;
  		position: fixed;
  		height: 40px;
  		left: 0;
@@ -212,7 +247,7 @@ input, select {
  	}
  }
 
- .detour-menu {
+ .detour-menu.disabled {
  	width: 100%;
  	background-color: purple;
  	overflow: hidden;

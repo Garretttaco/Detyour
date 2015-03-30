@@ -1,3 +1,6 @@
+html {
+  overflow: hidden; }
+
 body {
   text-align: center; }
 
@@ -132,6 +135,37 @@ header {
   background-color: red;
   overflow: hidden; }
 
+.fa-minus {
+  position: absolute;
+  z-index: 110;
+  right: 1%;
+  top: 50%;
+  font-size: 40px;
+  color: rgba(66, 106, 140, 0.8); }
+
+.fa-minus.panel {
+  color: black; }
+
+#directions-panel {
+  height: -webkit-calc(100% - 140px);
+  height: calc(100% - 140px);
+  position: absolute;
+  width: 50%;
+  overflow: auto;
+  z-index: 106;
+  bottom: 40px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  transform: translateX(200%);
+  background-color: rgba(66, 106, 140, 0.8); }
+
+#directions-panel.show {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%); }
+
 /***********
 Preference Page
 ***********/
@@ -161,6 +195,7 @@ footer {
   overflow: hidden; }
   footer .show-bottom-menu, footer .footer-template {
     background-color: #355c7d;
+    color: #01BEFC;
     position: fixed;
     height: 40px;
     left: 0;
