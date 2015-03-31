@@ -24,12 +24,13 @@ $(function(){
   });
 
   $('.detour-menu').on('click', '.detour', function(){
-    var val = $(this).children('span').text();
-    var type = val.split(" ");
+    // var val = $(this).children('span').text();
+    var typeString = $(this).attr('data-detour'); 
+    var types = typeString.split(" ");
     var request = {
       location: pos,
       radius: 5000,
-      types: type
+      types: types
     };
     service.nearbySearch(request, function(results, status){
       var shell = ["Shell", "Circle K"];
@@ -201,7 +202,6 @@ $(function(){
           if(keywords.indexOf(place.name) >= 0) {
             image ='/images/blue-pin-two.png'; 
             createWaypoint(place, image);
-            // console.log(keyword);
           } else {
             createWaypoint(place);
           }

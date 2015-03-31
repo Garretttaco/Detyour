@@ -46,16 +46,16 @@
 		<p class="bottom-menu">Detyour</p>
 		</div>
 		<div class="detour-menu">
-		<div class="gas menu detour">
-		<span class="val" style="display:none;">gas_station</span>
+		<div class="gas menu detour" data-detour="gas_station">
+		{{-- <span class="val" style="display:none;"></span> --}}
 			<p>Gas Stations</p>
 		</div>
-		<div class="restaurants menu detour">
-		<span class="val" style="display:none;">restaurant food</span>
+		<div class="restaurants menu detour" data-detour="restaurant food">
+		{{-- <span class="val" style="display:none;"></span> --}}
 			<p>Restaurants</p>
 		</div>
-		<div class="attractions menu detour">
-		<span class="val" style="display:none;">amusement_park art_gallery aquarium bowling_alley campground casino museum zoo</span>
+		<div class="attractions menu detour" data-detour="amusement_park art_gallery aquarium bowling_alley campground casino museum zoo">
+		{{-- <span class="val" style="display:none;"></span> --}}
 			<p>Attractions</p>
 		</div>
 	</div>
