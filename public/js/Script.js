@@ -28,7 +28,7 @@ $(function(){
     return el.className;
   }
 
-  $('.detour-menu').on('click', '.detour', function(){
+  $(document).on('click', '.detour', function(){
     clearMarkers(markers);    
     console.log(preferences);
 
@@ -100,6 +100,7 @@ $(function(){
 
   if (window.location.pathname == '/map') {
 
+  
     directionsService = new google.maps.DirectionsService();
        
     infoWindow = new google.maps.InfoWindow();
@@ -116,7 +117,8 @@ $(function(){
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       var markerArray = [];
       rendererOptions = {
-        map: map
+        map: map,
+        preserveViewport: true
       };
       directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 
@@ -134,6 +136,7 @@ $(function(){
 
         map.setCenter(pos);
       }, function() {/* for error reporting */});
+      
     }
     
     function searchDest() {
@@ -173,6 +176,10 @@ $(function(){
           infoWindow.open(map, this);
           calcRoute(pos, dest);
           clearMarkers(markers);
+           if (map.getCenter() != pos || map.getZoom() != 12) {
+          map.setCenter(pos);
+          map.setZoom(12); 
+        }
         });
 
 
@@ -192,7 +199,7 @@ $(function(){
     }
 
 
-    function createWaypoint(place, image) {
+    function createWaypoint(place, bounds, image) {
       var marker = new google.maps.Marker({
         map: map,
         icon: image,
@@ -201,29 +208,44 @@ $(function(){
       });
       markers.push(marker);
       // console.log(markers);
+      bounds.extend(place.geometry.location);
+      map.fitBounds(bounds);
 
+ // var listener = google.maps.event.addListener(map, "idle", function() { 
+ //        if (map.getCenter() != pos || map.getZoom() != 12) {
+ //          map.setCenter(pos);
+ //          map.setZoom(12); 
+ //        }
+ //          google.maps.event.removeListener(listener); 
+ //      });
       google.maps.event.addListener(marker, 'click', function() {
           // console.log(this);
           infoWindow.setContent(this.title);
           infoWindow.open(map, this);
-          calcRoute(pos, dest, this.position);
+          calcRoute(pos, dest, this.position, bounds);
           clearMarkers(markers);
+           if (map.getCenter() != pos || map.getZoom() != 12) {
+          map.setCenter(pos);
+          map.setZoom(12); 
+        }
         });
     }
 
     function searchWaypoint(results, status, keywords) {
 
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        // var preferedFound  = false;
+        var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < results.length; i++) {
           place = results[i];
           if(keywords.indexOf(place.name) >= 0) {
             image ='/images/blue-pin-two.png'; 
-            createWaypoint(place, image);
+            createWaypoint(place, bounds, image);
           } else {
-            createWaypoint(place);
+            createWaypoint(place, bounds);
           }
+          
         }
+        
       }
     }
     
@@ -232,7 +254,7 @@ $(function(){
     stepDisplay = new google.maps.InfoWindow();
       
     //pass option waypoint in here
-    function calcRoute(pos, dest, waypoint) {
+    function calcRoute(pos, dest, waypoint, bounds) {
 
       var request = {
         origin: pos,
@@ -250,6 +272,7 @@ $(function(){
       directionsService.route(request, function(response, status) {
         directionsDisplay.setDirections(response);
       });
+      // map.fitBounds(pos);
     }
 
 
