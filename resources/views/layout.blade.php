@@ -7,9 +7,6 @@
 	<link rel="stylesheet" href="<?php echo asset('css/normalize.css')?>" type="text/css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo asset('css/styles.css')?>" type="text/css">
-	<script src="<?php echo asset('./bower_components/jquery/dist/jquery.js')?>"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-	<script src="../js/Script.js"></script>
 </head>
 <body>
 
@@ -50,5 +47,8 @@
 		</div>
 		@show
 	</footer>
+	<script src="<?php echo asset('./bower_components/jquery/dist/jquery.js')?>"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+	<script src="../js/Script.js"></script>
 </body>
 </html>

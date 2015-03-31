@@ -23,23 +23,26 @@ class Collection {
 	    }
 	}
 	/**
-	 * Get Models as Array
+	 * Return an array of model objects
 	 */
 	public function getArray() {
 		return $this->models;
 	}
-
-	public function toJson() {
+	/**
+	 * Return an array of model arrays
+	 */
+	public function getArrayDeep() {
 		$a = [];
 		foreach($this->models as $model) {
 			$a[] = $model->getData();
 		}
-		return json_encode($a);
+		return $a;
 	}
 	/**
-	 * Magic To String
+	 * Magic To String. This allows you to output the controller as if it's a string. Should
+	 * be used for debugging purposes only
 	 */
 	public function __toString() {
-	    return empty($this->models) ? 'Collection has no models' : print_r($this->models, TRUE);
+	    return empty($this->models) ? 'Collection has no models' : print_r($this->getArrayDeep(), true);
 	}
 }

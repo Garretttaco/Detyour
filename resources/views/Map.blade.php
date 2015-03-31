@@ -59,4 +59,7 @@
 			<p>Attractions</p>
 		</div>
 	</div>
+	<script>
+ 		var preferences = {!! $preferences!!};
+	</script>
 @endsection

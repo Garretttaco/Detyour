@@ -6,9 +6,10 @@
 Route::get('/', function(){
 	return view('menu');
 });
-Route::get('/map', function(){
-	return view('Map');
-});
+Route::get('/map', 'PreferenceController@getPreferences');
+// Route::get('/map', function(){
+// 	return view('Map');
+// });
 Route::get('/settings', function(){
 	return view('settings');
 });

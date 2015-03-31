@@ -5,8 +5,8 @@ use Request;
 use DB;
 
 class Preference extends Model {
-    protected static $table = 'user_preference';
-    protected static $key = 'user_preference_id';
+    public static $table = 'user_preference';
+    public static $key = 'user_preference_id';
 
 	// public static function getAllCategories() {
 	// 	$results = DB::select('
