@@ -47,9 +47,6 @@ Menu Bar
   right: 0;
   top: 40px; }
 
-.menu {
-  font-size: 2em; }
-
 a.maps {
   width: 100%;
   background-color: orange;
@@ -57,7 +54,8 @@ a.maps {
   margin: 0;
   overflow: hidden;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  font-size: 2em; }
 
 a.preference {
   width: 100%;
@@ -65,7 +63,8 @@ a.preference {
   height: 25%;
   overflow: hidden;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  font-size: 2em; }
 
 a.settings {
   width: 100%;
@@ -73,7 +72,8 @@ a.settings {
   height: 25%;
   overflow: hidden;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  font-size: 2em; }
 
 a.about {
   width: 100%;
@@ -81,7 +81,8 @@ a.about {
   height: 25%;
   overflow: hidden;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  font-size: 2em; }
 
 /***********
 Maps Page
@@ -228,14 +229,14 @@ footer {
   -ms-transform: translateY(100%);
   transform: translateY(100%);
   z-index: 101; }
-  .detour-menu .gas, .detour-menu .restaurants, .detour-menu .attractions {
+  .detour-menu .gas, .detour-menu .food, .detour-menu .attractions {
     text-align: center;
     overflow: hidden;
     height: 33.33%;
     font-size: 1.5em; }
   .detour-menu .gas {
     background-color: yellow; }
-  .detour-menu .restaurants {
+  .detour-menu .food {
     background-color: orange; }
   .detour-menu .attractions {
     background-color: red; }

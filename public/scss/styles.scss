@@ -58,11 +58,6 @@ Menu Bar
     }
 
 
-.menu {
-	font-size: 2em;
-
-}
-
 a.maps {
 	width: 100%;
 	background-color: orange; 
@@ -71,6 +66,8 @@ a.maps {
 	overflow: hidden;
 	margin: 0 auto;
 	display: block;
+	font-size: 2em;
+
 }
 a.preference {
 	width: 100%;
@@ -79,6 +76,8 @@ a.preference {
 	overflow: hidden;
 	margin: 0 auto;
 	display: block;
+	font-size: 2em;
+
 
 }
 
@@ -89,6 +88,8 @@ a.settings {
 	overflow: hidden;
 	margin: 0 auto;
 	display: block;
+	font-size: 2em;
+
 
 }
 
@@ -99,6 +100,8 @@ a.about {
 	overflow: hidden;
 	margin: 0 auto;
 	display: block;
+	font-size: 2em;
+
 
 }
 
@@ -274,7 +277,7 @@ input, select {
 	transition: all .5s;
 	transform: translateY(100%);
 	z-index:101;
- 	.gas, .restaurants, .attractions {
+ 	.gas, .food, .attractions {
 		text-align: center;
 		overflow: hidden;
 		height: 33.33%;
@@ -283,7 +286,7 @@ input, select {
  	.gas {
  		background-color: yellow;
  	}
- 	.restaurants {
+ 	.food {
  		background-color: orange;
  	}
  	.attractions {

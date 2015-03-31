@@ -16,8 +16,8 @@ class PreferenceController extends Controller {
 	public function getPreferences() {
 		$all_prefs = Preference::all();
 		$pref_map = [
-			'1' => 'gas',
-			'2' => 'food',
+			'1' => 'food',
+			'2' => 'gas',
 			'3' => 'attractions'
 		];
 		$prefs = [

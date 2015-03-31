@@ -36,9 +36,9 @@ category_id INT NOT NULL,
 preference_name varchar(255) NOT NULL
 );
 
-INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '1', 'McDonalds');
-INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '1', 'Mimi\'s Cafe');
+INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '1', 'In-N-Out Burger');
+INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '1', 'Paradise Bakery & Cafe');
 INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('2', '2', 'Shell');
-INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('2', '2', 'Costco Gas');
-INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '3', 'Grand Canyon');
-INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '3', 'Phoenix Zoo');
+INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('2', '2', 'Circle K');
+INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '3', 'Arizona State University Art Museum');
+INSERT INTO user_preference ( user_id, category_id, preference_name) VALUES ('1', '3', 'Big Surf Waterpark');

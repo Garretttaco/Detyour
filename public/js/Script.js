@@ -23,9 +23,27 @@ $(function(){
     $('.detour-menu').toggleClass('show');
   });
 
+  function getType(el) {
+    el.classList.remove("detour");
+    return el.className;
+  }
+
   $('.detour-menu').on('click', '.detour', function(){
-    // var val = $(this).children('span').text();
+    clearMarkers(markers);    
+    console.log(preferences);
+
+    //get the key name that will access the value array in the userPreference object 
+    var typeKey = getType(this);
+
+
+    //Get preference for this type
+    var prefs = preferences[typeKey];
+
+    console.log(prefs);
+    //get Google search term
     var typeString = $(this).attr('data-detour'); 
+
+    //Turn it into an array
     var types = typeString.split(" ");
     var request = {
       location: pos,
@@ -33,8 +51,8 @@ $(function(){
       types: types
     };
     service.nearbySearch(request, function(results, status){
-      var shell = ["Shell", "Circle K"];
-      searchWaypoint(results, status, shell)
+      
+      searchWaypoint(results, status, prefs);
     });
     $('.detour-menu').removeClass('show');
 
@@ -196,7 +214,7 @@ $(function(){
     function searchWaypoint(results, status, keywords) {
 
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var preferedFound  = false;
+        // var preferedFound  = false;
         for (var i = 0; i < results.length; i++) {
           place = results[i];
           if(keywords.indexOf(place.name) >= 0) {
