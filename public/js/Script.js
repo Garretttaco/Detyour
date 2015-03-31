@@ -24,8 +24,9 @@ $(function(){
   });
 
   function getType(el) {
-    el.classList.remove("detour");
-    return el.className;
+    var type = Array(el.classList[0]);
+   
+    return type;
   }
 
   $(document).on('click', '.detour', function(){
