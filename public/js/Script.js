@@ -23,14 +23,16 @@ $(function(){
     $('.detour-menu').toggleClass('show');
   });
 
-  $('.gas').on('click', function(){
+  $('.detour-menu').on('click', '.detour', function(){
+    var val = $(this).children('span').text();
+    var type = val.split(" ");
     var request = {
       location: pos,
       radius: 5000,
-      types: ['gas_station']
+      types: type
     };
     service.nearbySearch(request, function(results, status){
-      var shell = "Shell";
+      var shell = ["Shell", "Circle K"];
       searchWaypoint(results, status, shell)
     });
     $('.detour-menu').removeClass('show');
@@ -89,7 +91,8 @@ $(function(){
     function myLocation() {
 
       var mapOptions = {
-        zoom: 10
+        zoom: 10,
+        disableDefaultUI: true
       };
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       var markerArray = [];
@@ -189,23 +192,18 @@ $(function(){
         });
     }
 
-    function searchWaypoint(results, status, keyword) {
+    function searchWaypoint(results, status, keywords) {
 
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         var preferedFound  = false;
         for (var i = 0; i < results.length; i++) {
           place = results[i];
-          if(place.name == keyword) {
+          if(keywords.indexOf(place.name) >= 0) {
             image ='/images/blue-pin-two.png'; 
             createWaypoint(place, image);
-            console.log(keyword);
-          }
-        }
-        for (var i = 0; i < results.length; i++) {
-          place = results[i];
-          if(place.name != keyword) {
+            // console.log(keyword);
+          } else {
             createWaypoint(place);
-            
           }
         }
       }

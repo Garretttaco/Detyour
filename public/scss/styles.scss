@@ -4,6 +4,13 @@ html {
 	overflow: hidden;
 }
 
+a {
+	&:link, &:visited, &:hover, &:active {
+    	color: #000;
+    	text-decoration: none;
+	}
+}
+
 
 body {
 	text-align: center;
@@ -56,36 +63,43 @@ Menu Bar
 
 }
 
-.maps {
+a.maps {
 	width: 100%;
 	background-color: orange; 
 	height: 25%;
 	margin: 0;
 	overflow: hidden;
 	margin: 0 auto;
+	display: block;
 }
-.preference {
+a.preference {
 	width: 100%;
 	background-color: darkorange;
 	height: 25%;
 	overflow: hidden;
 	margin: 0 auto;
+	display: block;
+
 }
 
-.settings {
+a.settings {
 	width: 100%;
 	background-color: red;
 	height: 25%;
 	overflow: hidden;
 	margin: 0 auto;
+	display: block;
+
 }
 
-.about {
+a.about {
 	width: 100%;
 	background-color: darkred;
 	height: 25%;
 	overflow: hidden;
 	margin: 0 auto;
+	display: block;
+
 }
 
 /***********
@@ -174,17 +188,18 @@ header {
  #directions-panel {
     height: calc(100% - 140px);
     position: absolute;
-    width: 50%;
+    width: 100%;
     overflow: auto;
     z-index: 106;
     bottom: 40px;
     transition: all .5s;
-    transform: translateX(200%);
+    transform: translateX(100%);
     background-color: rgba(66, 106, 140, 0.8);
+    // text-align: left;
   }
 
  #directions-panel.show {
- 	transform: translateX(100%);
+ 	transform: translateX(0);
  }
 
 /***********
@@ -247,7 +262,7 @@ input, select {
  	}
  }
 
- .detour-menu.disabled {
+ .detour-menu {
  	width: 100%;
  	background-color: purple;
  	overflow: hidden;

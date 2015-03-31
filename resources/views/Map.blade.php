@@ -2,18 +2,18 @@
 
 @section('header')
 	<div class="primary-menu">
-		<div class="maps menu">
+		<a href="/map" class="maps menu">
 			<p>Maps</p>
-		</div>
-		<div class="preference menu">
+		</a>
+		<a href="/preference" class="preference menu">
 			<p>Preferences</p>
-		</div>
-		<div class="settings menu">
+		</a>
+		<a href="/" class="settings menu">
 			<p>Settings</p>
-		</div>
-		<div class="about menu">
+		</a>
+		<a href="/about" class="about menu">
 			<p>About</p>
-		</div>
+		</a>
 	</div>
 	
 	<header>
@@ -45,14 +45,17 @@
 	<div class="show-bottom-menu">
 		<p class="bottom-menu">Detyour</p>
 		</div>
-		<div class="detour-menu disabled">
-		<div class="gas menu " detour="gas_station">
+		<div class="detour-menu">
+		<div class="gas menu detour">
+		<span class="val" style="display:none;">gas_station</span>
 			<p>Gas Stations</p>
 		</div>
-		<div class="restaurants menu">
+		<div class="restaurants menu detour">
+		<span class="val" style="display:none;">restaurant food</span>
 			<p>Restaurants</p>
 		</div>
-		<div class="attractions menu">
+		<div class="attractions menu detour">
+		<span class="val" style="display:none;">amusement_park art_gallery aquarium bowling_alley campground casino museum zoo</span>
 			<p>Attractions</p>
 		</div>
 	</div>

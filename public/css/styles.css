@@ -1,6 +1,10 @@
 html {
   overflow: hidden; }
 
+a:link, a:visited, a:hover, a:active {
+  color: #000;
+  text-decoration: none; }
+
 body {
   text-align: center; }
 
@@ -46,34 +50,38 @@ Menu Bar
 .menu {
   font-size: 2em; }
 
-.maps {
+a.maps {
   width: 100%;
   background-color: orange;
   height: 25%;
   margin: 0;
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
 
-.preference {
+a.preference {
   width: 100%;
   background-color: darkorange;
   height: 25%;
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
 
-.settings {
+a.settings {
   width: 100%;
   background-color: red;
   height: 25%;
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
 
-.about {
+a.about {
   width: 100%;
   background-color: darkred;
   height: 25%;
   overflow: hidden;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
 
 /***********
 Maps Page
@@ -150,21 +158,21 @@ header {
   height: -webkit-calc(100% - 140px);
   height: calc(100% - 140px);
   position: absolute;
-  width: 50%;
+  width: 100%;
   overflow: auto;
   z-index: 106;
   bottom: 40px;
   -webkit-transition: all .5s;
   transition: all .5s;
-  -webkit-transform: translateX(200%);
-  -ms-transform: translateX(200%);
-  transform: translateX(200%);
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
   background-color: rgba(66, 106, 140, 0.8); }
 
 #directions-panel.show {
-  -webkit-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  transform: translateX(100%); }
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0); }
 
 /***********
 Preference Page
