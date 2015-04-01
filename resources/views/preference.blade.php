@@ -20,13 +20,15 @@
 			<div class="edit-pref">
 				{{-- add new preference --}}
 				<form action="">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<h2>Add Preference</h2>
-					<input type="text" name="preference">
-					<button>Add</button>
+					<input class="add-pref-data" type="text" name="preference">
+					<button class="add-pref">Add</button>
 				</form>
 			</div>
 			<h2 class="edit-pref">Edit Preferences</h2>	
-			<form action="">	
+			<form action="/yes" method="POST">	
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<aside class="pref-append">
 				</aside>
 				<button class="edit-pref">Save Preferences</button>

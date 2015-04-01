@@ -25,10 +25,11 @@ class Preference extends Model {
 		$prefs = new Collection();
 		foreach($results as $result) {
 			$pref = new Preference();
-			$pref->id = $result->user_preference_id;
-			$pref->user_id = $result->user_id;
-			$pref->category_id = $result->category_id;
-			$pref->preference_name = $result->preference_name;
+			// $pref->preference_id = $result->user_preference_id;
+			// $pref->user_id = $result->user_id;
+			// $pref->category_id = $result->category_id;
+			// $pref->preference_name = $result->preference_name;
+			$pref->setData($result->{static::$key}, (array)$result);
 			$prefs->add($pref);
 
 		}

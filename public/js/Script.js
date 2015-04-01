@@ -66,6 +66,53 @@ $(function(){
 
   $(document).find('div.login').addClass('hide');
 
+  $(document).on('click', '.edit-pref', function(e){
+    e.preventDefault();
+
+    var data = {};
+    $(".user_pref").each(function() {
+      data[$(this).attr("name")] = $(this).val();
+    });
+
+    console.log(data);
+      //Making the Ajax call to retrieve the preferences per the category chosen without making a page refresh
+    // $.ajax({ 
+    //   type: "POST",
+    //   //laravel's router picks up the request per the sepcific url and sends it to the AjaxController
+    //   url: "/preference/" + cat_id,
+    //    //Explicitly tells php to return the string in Json not html
+    //   dataType: 'json',
+    //   data: data,
+    //   //response is what is returned from the controller                           
+    //   success: function(response){
+    //     // console.log(response);
+    //     var preference = {'tag':'input','html':'${title}'};
+    //     //asign where you are appending to a variable
+    //     var pref = $('.pref-append');
+    //     //clear the html in that space
+    //     pref.html('');
+    //     //loop through the JavaScript object and appropriately place the data
+    //     // prefArray = [];
+    //     // var input;
+    //     response.forEach(function(preference){
+    //       pref.append('<input class="user_pref" type="text" name="' + preference.user_preference_id + '" value="' + preference.preference_name + '">');
+    //       // prefsArray.push(input);
+    //     });
+    //     // console.log(prefsArray);
+    //   }
+
+    // });
+
+
+
+  });
+
+  // $(document).on('click', '.add-pref', function(e){
+  //   e.preventDefault();
+  //   var data = $('.add-pref-data').val();
+  //   console.log(data);
+  // });
+
 	//This is the event triggered when a user chooses/changes a category on the select tag
 	$(document).on('change', '.category-all', function(){
 
@@ -84,15 +131,20 @@ $(function(){
       dataType: 'json',
       //response is what is returned from the controller                           
       success: function(response){
-      	var preference = {'tag':'input','html':'${title}'};
-      	//asign where you are appending to a variable
-      	var pref = $('.pref-append');
-      	//clear the html in that space
-      	pref.html('');
-      	//loop through the JavaScript object and appropriately place the data
-      	response.forEach(function(preference){
-      		pref.append('<input type="text" name="' + preference.user_preference_id + '" value="' + preference.preference_name + '">');
+        // console.log(response);
+        var preference = {'tag':'input','html':'${title}'};
+        //asign where you are appending to a variable
+        var pref = $('.pref-append');
+        //clear the html in that space
+        pref.html('');
+        //loop through the JavaScript object and appropriately place the data
+        // prefArray = [];
+        // var input;
+        response.forEach(function(preference){
+      		pref.append('<input class="user_pref" type="text" name="' + preference.user_preference_id + '" value="' + preference.preference_name + '">');
+          // prefsArray.push(input);
       	});
+        // console.log(prefsArray);
 		  }
 
 		});

@@ -3,9 +3,10 @@
 
 
 // Route::get('/', 'WelcomeController@index');
-Route::get('/', function(){
-	return view('menu');
-});
+// Route::get('/', function(){
+// 	return view('menu');
+// });
+Route::post('/yes', 'PreferenceController@updatePreferences');
 Route::get('/map', 'PreferenceController@getPreferences');
 // Route::get('/map', function(){
 // 	return view('Map');

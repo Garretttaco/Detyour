@@ -29,10 +29,13 @@ class PreferenceController extends Controller {
 			$key = $pref_map[$pref->category_id];
 			$prefs[$key][] = $pref->preference_name;
 		}
-		// print_r($prefs);
 		
 		return view('Map', ['preferences'=>json_encode($prefs)]);
+	}
 
-
+	public function updatePreferences() {
+		// print_r(Request);
+		$retrived_prefs = Request::all();
+		 print_r($retrived_prefs);
 	}
 }
