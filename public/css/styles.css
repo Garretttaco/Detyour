@@ -173,12 +173,22 @@ header {
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
-  background-color: rgba(66, 106, 140, 0.8); }
+  background-color: #426A8C; }
 
 #directions-panel.show {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0); }
+
+.adp-text {
+  color: black; }
+
+.adp, .adp table {
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px; }
 
 /***********
 Preference Page
@@ -195,12 +205,18 @@ input, select {
   margin: 10px;
   text-align: initial; }
 
+.add-pref {
+  margin-top: 10px; }
+
 .edit-pref, .pref-append {
   margin-top: 40px;
   display: none; }
 
 .expand .edit-pref, .expand .pref-append {
   display: block; }
+
+.fa-minus-circle {
+  padding-left: 10px; }
 
 /***********
  Detour pull up footer
@@ -222,8 +238,7 @@ footer {
   width: 100%;
   background-color: purple;
   overflow: hidden;
-  height: -webkit-calc(40% - 140px);
-  height: calc(40% - 140px);
+  height: 160px;
   position: fixed;
   left: 0;
   right: 0;

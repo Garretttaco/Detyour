@@ -1,24 +1,25 @@
 <?php
 
+Route::get('/', function(){
+	return view('login');
+});
 
-
-// Route::get('/', 'WelcomeController@index');
-// Route::get('/', function(){
-// 	return view('menu');
-// });
-Route::post('/yes', 'PreferenceController@updatePreferences');
+//Returns all preferences as a JavaScript object 'JSON' 
 Route::get('/map', 'PreferenceController@getPreferences');
-// Route::get('/map', function(){
-// 	return view('Map');
-// });
+
 Route::get('/settings', function(){
 	return view('settings');
 });
 Route::get('/about', function(){
 	return view('about');
 });
+
+//Gets all categories for select box on preference page
 Route::get('/preference', 'PreferenceController@getCategories');
+
+//Gets all preferences for the preference clicked on
 Route::get('/preference/{id}', 'AjaxController@getPreferences');
+
 
 Route::get('home', 'HomeController@index');
 

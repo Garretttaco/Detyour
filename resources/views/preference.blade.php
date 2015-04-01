@@ -23,7 +23,7 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<h2>Add Preference</h2>
 					<input class="add-pref-data" type="text" name="preference">
-					<button class="add-pref">Add</button>
+					<div><button class="add-pref">Add</button></div>
 				</form>
 			</div>
 			<h2 class="edit-pref">Edit Preferences</h2>	
